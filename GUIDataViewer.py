@@ -15,7 +15,8 @@ import multiprocessing
 from queue import Empty
 import time
 import re
-from xtquant import xtdata
+
+from kh_xtquant_compat import xtdata
 
 
 class LoadingDialog(QDialog):
@@ -150,7 +151,7 @@ def supplement_data_worker(params, progress_queue, result_queue, stop_event):
         import logging
         import time
         import re
-        from xtquant import xtdata
+        from kh_xtquant_compat import xtdata
         
 
         

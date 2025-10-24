@@ -12,12 +12,10 @@ import pandas as pd
 import numpy as np
 import logging
 
-try:
-    from xtquant.xtdata import get_local_data
-    XTDATA_AVAILABLE = True
-except ImportError:
-    XTDATA_AVAILABLE = False
-    logging.warning("xtquant未安装，将使用示例数据")
+from kh_xtquant_compat import has_xtquant, xtdata
+
+get_local_data = xtdata.get_local_data
+XTDATA_AVAILABLE = has_xtquant()
 
 
 class MiniQMTDataParser:

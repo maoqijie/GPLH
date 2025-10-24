@@ -10,10 +10,13 @@ import shutil
 from types import SimpleNamespace
 import threading
 
-from xtquant import xtdata
-from xtquant.xttrader import XtQuantTrader, XtQuantTraderCallback
-from xtquant.xttype import StockAccount
-from xtquant import xtconstant
+from kh_xtquant_compat import (
+    XtQuantTrader,
+    XtQuantTraderCallback,
+    StockAccount,
+    xtconstant,
+    xtdata,
+)
 
 from khTrade import KhTradeManager
 from khRisk import KhRiskManager

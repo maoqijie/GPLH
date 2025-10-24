@@ -43,7 +43,7 @@ except ImportError:
 try:
     from khFrame import KhQuantFramework, MyTraderCallback
     from khQTTools import get_stock_names
-    from xtquant.xttrader import XtQuantTrader, XtQuantTraderCallback
+    from kh_xtquant_compat import XtQuantTrader, XtQuantTraderCallback
 except ImportError as e:
     logging.error(f"导入必要模块失败: {str(e)}")
 

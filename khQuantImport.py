@@ -19,11 +19,14 @@ import numpy as np
 import pandas as pd
 
 # ===== 量化库 =====
-from xtquant import xtdata
-try:
-    from xtquant.xttrader import XtQuantTrader, XtQuantTraderCallback
-except ImportError:
-    # 如果没有交易模块，提供占位符
+from kh_xtquant_compat import (
+    XtQuantTrader,
+    XtQuantTraderCallback,
+    has_xtquant,
+    xtdata,
+)
+
+if not has_xtquant():
     XtQuantTrader = None
     XtQuantTraderCallback = None
 

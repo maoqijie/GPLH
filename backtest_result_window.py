@@ -23,7 +23,7 @@ import numpy as np
 import sys
 import time
 from khQTTools import KhQuTools
-from xtquant import xtdata
+from kh_xtquant_compat import xtdata
 
 # 设置matplotlib的字体和其他参数
 plt.rcParams['font.sans-serif'] = ['Microsoft YaHei', 'SimHei', 'DejaVu Sans']
@@ -1379,7 +1379,7 @@ class BacktestResultWindow(QMainWindow):
                     # 尝试获取策略起始日期前一个交易日的基准收盘价
                     try:
                         # 导入xtdata
-                        from xtquant import xtdata
+                        from kh_xtquant_compat import xtdata
                         
                         # 获取策略起始日期
                         first_date = daily_stats_df['date'].min()
@@ -2159,7 +2159,7 @@ class BacktestResultWindow(QMainWindow):
                         # 尝试通过xtdata获取额外的一天数据
                         try:
                             # 导入xtdata
-                            from xtquant import xtdata
+                            from kh_xtquant_compat import xtdata
                             
                             # 获取benchmark_df中第一天的日期
                             first_date = benchmark_df['date'].min()
@@ -3024,7 +3024,7 @@ class BacktestResultWindow(QMainWindow):
                 # 尝试通过xtdata获取前一个交易日的数据
                 try:
                     # 导入xtdata
-                    from xtquant import xtdata
+                    from kh_xtquant_compat import xtdata
                     
                     # 获取benchmark_df中第一天的日期
                     first_date = pd.to_datetime(benchmark_df['date'].iloc[0])

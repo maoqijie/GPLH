@@ -21,7 +21,8 @@ import csv
 import time
 from datetime import datetime, timedelta
 import pandas as pd
-from xtquant import xtdata
+# 兼容 xtquant 的 Linux 实现
+from kh_xtquant_compat import xtdata
 # from xtquant.xtdata import get_client
 import glob
 import numpy as np
@@ -1369,7 +1370,7 @@ def stock_list_worker(output_dir, queue):
                 pass  # 可能已经设置过了
         
         # 在子进程中导入模块，避免Qt冲突
-        from xtquant import xtdata
+        from kh_xtquant_compat import xtdata
         import ast
         import logging
         
@@ -1401,7 +1402,7 @@ def stock_list_worker(output_dir, queue):
 
 def get_stock_list_for_subprocess(queue):
     """子进程版本的获取股票列表函数，带进度反馈"""
-    from xtquant import xtdata
+    from kh_xtquant_compat import xtdata
     import ast
     
     # 初始化返回的字典
@@ -1692,7 +1693,7 @@ def get_and_save_stock_list(output_dir):
     else:
         # 在子进程中直接执行，不使用Qt相关功能
         try:
-            from xtquant import xtdata
+            from kh_xtquant_compat import xtdata
             stock_dict = get_stock_list()
             save_stock_list_to_csv(stock_dict, output_dir)
             return True, "股票列表更新成功！"
@@ -2178,7 +2179,7 @@ def khHistory(symbol_list, fields, bar_count, fre_step, current_time=None, skip_
     
     # 导入必要的模块
     try:
-        from xtquant import xtdata
+        from kh_xtquant_compat import xtdata
         import pandas as pd
         from datetime import datetime, timedelta
     except ImportError as e:

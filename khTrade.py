@@ -3,8 +3,7 @@ from typing import Dict, List, Optional
 import datetime
 from types import SimpleNamespace
 
-from xtquant.xttrader import XtQuantTraderCallback
-from xtquant import xtconstant
+from kh_xtquant_compat import XtQuantTraderCallback, xtconstant
 
 class KhTradeManager:
     """交易管理类"""
